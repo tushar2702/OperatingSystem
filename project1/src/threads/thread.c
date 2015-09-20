@@ -317,6 +317,8 @@ remove_from_blocked_list (int64_t current_time)
 			if (current_time >= blocked_thread->wake_up_time) {
 				list_remove (&blocked_thread->blocked_elem);
 				thread_unblock (blocked_thread);
+			} else {
+				break;
 			}
 		}
 	}

@@ -237,6 +237,20 @@ lock_init (struct lock *lock)
   sema_init (&lock->semaphore, 1);
 }
 
+/* If the thread is blocked on any lock, it adds itself to
+ * the lock holder's donor list. */
+static void
+add_to_donor_list (struct lock *lock)
+{
+	if (lock->holder) {
+		thread_current ()->waiting_for_lock = lock;
+		list_insert_ordered (&lock->holder->donor_list,
+				&thread_current ()->donor_elem,
+				(list_less_func *) &compare_priority,
+				NULL);
+	  }
+}
+
 /* Acquires LOCK, sleeping until it becomes available if
    necessary.  The lock must not already be held by the current
    thread.
@@ -252,16 +266,7 @@ lock_acquire (struct lock *lock)
   ASSERT (!intr_context ());
   ASSERT (!lock_held_by_current_thread (lock));
 
-  /* If the thread is blocked on any lock, it adds itself to
-   * the lock holder's donor list. */
-  if (lock->holder) {
-	  thread_current ()->waiting_for_lock = lock;
-	  list_insert_ordered (&lock->holder->donor_list,
-			  &thread_current ()->donor_elem,
-			  (list_less_func *) &compare_priority,
-			  NULL);
-  }
-
+  add_to_donor_list(lock);
   sema_down (&lock->semaphore);
   lock->holder = thread_current ();
   thread_current ()->waiting_for_lock = NULL;

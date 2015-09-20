@@ -1,11 +1,11 @@
-qemu -hda /tmp/ZXmsbhAUPt.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/jlsltjJMeN.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading.........
 Kernel command line: -q run priority-donate-nest
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  104,755,200 loops/s.
+Calibrating timer...  471,040,000 loops/s.
 Boot complete.
 Executing 'priority-donate-nest':
 (priority-donate-nest) begin
@@ -21,8 +21,8 @@ Executing 'priority-donate-nest':
 (priority-donate-nest) Low thread should have priority 31.  Actual priority: 31.
 (priority-donate-nest) end
 Execution of 'priority-donate-nest' complete.
-Timer: 34 ticks
-Thread: 0 idle ticks, 34 kernel ticks, 0 user ticks
+Timer: 28 ticks
+Thread: 0 idle ticks, 28 kernel ticks, 0 user ticks
 Console: 1062 characters output
 Keyboard: 0 keys pressed
 Powering off...
