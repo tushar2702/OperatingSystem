@@ -1,0 +1,32 @@
+Copying tests/userprog/open-null to scratch partition...
+qemu -hda /tmp/ckofVI17FG.dsk -m 4 -net none -nographic -monitor null
+PiLo hda1
+Loading...........
+Kernel command line: -q -f extract run open-null
+Pintos booting with 4,088 kB RAM...
+382 pages available in kernel pool.
+382 pages available in user pool.
+Calibrating timer...  155,852,800 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 186 sectors (93 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 100 sectors (50 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'open-null' into the file system...
+Erasing ustar archive...
+Executing 'open-null':
+(open-null) begin
+open-null: exit(-1)
+Execution of 'open-null' complete.
+Timer: 81 ticks
+Thread: 40 idle ticks, 40 kernel ticks, 1 user ticks
+hda2 (filesys): 230 reads, 208 writes
+hda3 (scratch): 99 reads, 2 writes
+Console: 871 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...

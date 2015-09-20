@@ -1,0 +1,43 @@
+Copying tests/filesys/extended/grow-seq-sm to scratch partition...
+Copying tests/filesys/extended/tar to scratch partition...
+qemu -hda /tmp/GKQx5TYgTC.dsk -hdb tmp.dsk -m 4 -net none -nographic -monitor null
+PiLo hda1
+Loading...........
+Kernel command line: -q -f extract run grow-seq-sm
+Pintos booting with 4,088 kB RAM...
+382 pages available in kernel pool.
+382 pages available in user pool.
+Calibrating timer...  78,540,800 loops/s.
+hda: 1,008 sectors (504 kB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 186 sectors (93 kB), Pintos OS kernel (20)
+hda2: 231 sectors (115 kB), Pintos scratch (22)
+hdb: 5,040 sectors (2 MB), model "QM00002", serial "QEMU HARDDISK"
+hdb1: 4,096 sectors (2 MB), Pintos file system (21)
+filesys: using hdb1
+scratch: using hda2
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'grow-seq-sm' into the file system...
+Putting 'tar' into the file system...
+Erasing ustar archive...
+Executing 'grow-seq-sm':
+(grow-seq-sm) begin
+(grow-seq-sm) create "testme"
+(grow-seq-sm) open "testme"
+(grow-seq-sm) writing "testme"
+(grow-seq-sm) close "testme"
+(grow-seq-sm) open "testme" for verification
+(grow-seq-sm) verified contents of "testme"
+(grow-seq-sm) close "testme"
+(grow-seq-sm) end
+grow-seq-sm: exit(0)
+Execution of 'grow-seq-sm' complete.
+Timer: 162 ticks
+Thread: 71 idle ticks, 80 kernel ticks, 11 user ticks
+hdb1 (filesys): 545 reads, 510 writes
+hda2 (scratch): 230 reads, 2 writes
+Console: 1246 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
