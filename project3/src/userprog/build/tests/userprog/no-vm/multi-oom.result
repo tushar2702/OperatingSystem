@@ -1,0 +1,5 @@
+FAIL
+Kernel panic in run: PANIC at ../../filesys/inode.c:336 in inode_allow_write(): assertion `inode->deny_write_cnt <= inode->open_cnt' failed.
+Call stack: 0xc00286fe
+Translation of call stack:
+0xc00286fe: debug_panic (.../../lib/kernel/debug.c:38)
